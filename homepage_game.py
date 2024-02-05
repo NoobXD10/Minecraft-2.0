@@ -1,54 +1,40 @@
-import pygame
-import sys
+# ... (previous code)
 
-# Initialize Pygame
-pygame.init()
+elif selected_menu == "Play":
+    # Load play_game.py or transition to your gameplay logic
+    print("Loading Play options...")
 
-# Set up the display
-width, height = 800, 600
-screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Minecraft 2.0")
+    # Display options under "Play"
+    play_options = ["Start a World", "Load World", "Worlds"]
+    play_selected_option = 0
 
-# Define colors
-white = (255, 255, 255)
-black = (0, 0, 0)
+    while True:
+        for play_event in pygame.event.get():
+            if play_event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
 
-# Create a font object
-font = pygame.font.Font(None, 36)
+            elif play_event.type == pygame.KEYDOWN:
+                if play_event.key == pygame.K_UP:
+                    play_selected_option = (play_selected_option - 1) % len(play_options)
+                elif play_event.key == pygame.K_DOWN:
+                    play_selected_option = (play_selected_option + 1) % len(play_options)
 
-# Menu options
-menu_options = ["Play", "Marketplace", "Settings"]
-selected_option = 0
+                elif play_event.key == pygame.K_RETURN:
+                    selected_play_option = play_options[play_selected_option]
 
-# Main game loop
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+                    if selected_play_option == "Start a World":
+                        print("Starting a new world...")
+                        # Add logic for starting a new world
 
-        # Handle arrow key navigation
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                selected_option = (selected_option - 1) % len(menu_options)
-            elif event.key == pygame.K_DOWN:
-                selected_option = (selected_option + 1) % len(menu_options)
+                    elif selected_play_option == "Load World":
+                        print("Loading saved worlds...")
+                        # Add logic for loading saved worlds
 
-            # Pressing Enter for the selected option
-            elif event.key == pygame.K_RETURN:
-                selected_menu = menu_options[selected_option]
-                print(f"Selected: {selected_menu}")
+                    elif selected_play_option == "Worlds":
+                        print("Opening Worlds menu...")
+                        # Add logic to transition to the world selection screen
+                        from world_selection import world_selection_screen
+                        world_selection_screen()
 
-    # Clear the screen
-    screen.fill(black)
-
-    # Draw menu options
-    for i, option in enumerate(menu_options):
-        text_color = white if i == selected_option else (200, 200, 200)
-        text = font.render(option, True, text_color)
-        text_rect = text.get_rect(center=(width // 2, height // 2 + i * 50))
-        screen.blit(text, text_rect)
-
-    # Update the display
-    pygame.display.flip()
-
+        # ... (rest of the code)
