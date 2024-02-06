@@ -37,3 +37,6 @@ This version keeps it concise and adds a bit more game-themed flair. Feel free t
 
 
 
+Our Discord: https://discord.gg/DD74pg6Npq
+
+Feel Free to join for having fun or needing support
