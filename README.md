@@ -15,7 +15,7 @@ Dive into the retro world of Minecraft 2.0 - an ASCII adventure where creativity
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/minecraft-2.0.git
+   git clone https://github.com/NOOBXD10/minecraft-2.0.git
 
 Enter the game directory: cd minecraft-2.0
 (NOTE: PUT THIS AT THE BASH) 
